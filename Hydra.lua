@@ -2757,7 +2757,7 @@ database:del(bot_id.."Hydra:Comd:New:rt:User:"..msg.chat_id_..result.sender_user
 elseif Hydrart == "ادمن" and Owner(msg) then 
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
 database:srem(bot_id.."Hydra:Mod:User"..msg.chat_id_,result.sender_user_id_) 
-database:del(bot_id.."Tshake:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
+database:del(bot_id.."Hydra:Comd:New:rt:User:"..msg.chat_id_..result.sender_user_id_)
 elseif Tshakert == "مدير" and Constructor(msg) then
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..data.first_name_.."](t.me/"..(data.username_ or "BOBBW")..")".."\n📬┇تم تنزيله من "..RTPA.." هنا\n")   
 database:srem(bot_id.."Hydra:Manager"..msg.chat_id_,result.sender_user_id_)  
@@ -2771,7 +2771,7 @@ tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonu
 end
 end
 if text and text:match("^رفع (.*) @(.*)") and Addictive(msg) then 
-local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
+local url,res = http.request('http://Hydra7.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.HyDrA ~= true then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@zx_xx] ⚜️')   
@@ -2782,19 +2782,19 @@ if database:sismember(bot_id.."Hydra:Coomds"..msg.chat_id_,text1[2]) then
 function py_username(extra, result, success)   
 if result.id_ then
 local Tshakert = database:get(bot_id.."Hydra:Comd:New:rt:bot:"..text1[2]..msg.chat_id_)
-if Tshakert == "مميز" and Addictive(msg) then
+if Hydrart == "مميز" and Addictive(msg) then
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Hydra:Special:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Hydra:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif Tshakert == "ادمن" and Owner(msg) then 
+elseif Hydrart == "ادمن" and Owner(msg) then 
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Hydra:Mod:User"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Hydra:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif Tshakert == "مدير" and Constructor(msg) then
+elseif Hydrart == "مدير" and Constructor(msg) then
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
 database:sadd(bot_id.."Hydra:Manager"..msg.chat_id_,result.id_)  
 database:set(bot_id.."Hydra:Comd:New:rt:User:"..msg.chat_id_..result.id_,text1[2])
-elseif Tshakert == "عضو" and Addictive(msg) then
+elseif Hydrart == "عضو" and Addictive(msg) then
 send(msg.chat_id_, msg.id_,"\n👤┇العضو » ["..result.title_.."](t.me/"..(text1[3] or "BOBBW")..")".."\n📬┇تم رفعه "..text1[2].." هنا")   
 end
 else
@@ -2806,7 +2806,7 @@ tdcli_function ({ID = "SearchPublicChat",username_ = text1[3]},py_username,nil)
 end 
 end
 if text and text:match("^تنزيل (.*) @(.*)") and Addictive(msg) then 
-local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
+local url,res = http.request('http://Hydra7.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.HyDrA ~= true then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@zx_xx] ⚜️')   
