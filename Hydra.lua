@@ -17,18 +17,11 @@ print("\27[34m"..[[
 >> Best Source in Telegram
 >> Features fast and powerful
 
- /$$$$$$$$        /$$                 /$$                
-|__  $$__/       | $$                | $$                
-   | $$  /$$$$$$$| $$$$$$$   /$$$$$$ | $$   /$$  /$$$$$$ 
-   | $$ /$$_____/| $$__  $$ |____  $$| $$  /$$/ /$$__  $$
-   | $$|  $$$$$$ | $$  \ $$  /$$$$$$$| $$$$$$/ | $$$$$$$$
-   | $$ \____  $$| $$  | $$ /$$__  $$| $$_  $$ | $$_____/
-   | $$ /$$$$$$$/| $$  | $$|  $$$$$$$| $$ \  $$|  $$$$$$$
-   |__/|_______/ |__/  |__/ \_______/|__/  \__/ \_______/
+ 
                                                                                                                                                                          
->> CH > @TSHAKETEAM
->> CH > @ZX_XX 
->> DEVELOPER > @VVWVV
+>> CH > @
+>> CH > @ 
+>> DEVELOPER > @
 ]].."\27[m")
 
 io.popen("mkdir Hydra_Files")
@@ -141,15 +134,15 @@ var = "المطور الاساسي"
 elseif tonumber(user_id) == tonumber(bot_id) then  
 var = "البوت"
 elseif database:sismember(bot_id.."Hydra:Sudo:User", user_id) then
-var = database:get(bot_id.."Tshake:Sudo:Rd"..chat_id) or "المطور"  
+var = database:get(bot_id.."Hydra:Sudo:Rd"..chat_id) or "المطور"  
 elseif database:sismember(bot_id.."Hydra:Basic:Constructor"..chat_id, user_id) then
-var = database:get(bot_id.."Tshake:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
+var = database:get(bot_id.."Hydra:BasicConstructor:Rd"..chat_id) or "المنشئ اساسي"
 elseif database:sismember(bot_id.."Hydra:Constructor"..chat_id, user_id) then
 var = database:get(bot_id.."Hydra:Constructor:Rd"..chat_id) or "المنشئ"  
 elseif database:sismember(bot_id.."Hydra:Manager"..chat_id, user_id) then
 var = database:get(bot_id.."Hydra:Manager:Rd"..chat_id) or "المدير"  
 elseif database:sismember(bot_id.."Hydra:Mod:User"..chat_id, user_id) then
-var = database:get(bot_id.."Tshake:Mod:Rd"..chat_id) or "الادمن"  
+var = database:get(bot_id.."Hydra:Mod:Rd"..chat_id) or "الادمن"  
 elseif database:sismember(bot_id.."Hydra:Special:User"..chat_id, user_id) then  
 var = database:get(bot_id.."Hydra:Special:Rd"..chat_id) or "المميز"  
 else  
