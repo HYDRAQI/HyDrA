@@ -89,7 +89,7 @@ done
 RunTs:close()
 end
 Files_Hydra_Info()
-database:del(Server_Hydra.."Token_Hydra");database:del(Server_Hydra.."Id_Hydra");database:del(Server_Hydra.."UserName_Tshake")
+database:del(Server_Hydra.."Token_Hydra");database:del(Server_Hydra.."Id_Hydra");database:del(Server_Hydra.."UserName_Hydra")
 sudos = dofile('sudo.lua')
 os.execute('./install.sh ins')
 end 
