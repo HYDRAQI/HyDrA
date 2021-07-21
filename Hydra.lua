@@ -615,7 +615,7 @@ end
 
 if not Vips(msg) and msg.content_.ID ~= "MessageChatAddMembers" and database:hget(bot_id.."Hydra:flooding:settings:"..msg.chat_id_,"flood") then 
 floods = database:hget(bot_id.."Hydra:flooding:settings:"..msg.chat_id_,"flood") or "nil"
-Num_Msg_Max = database:hget(bot_id.."Tshake:flooding:settings:"..msg.chat_id_,"floodmax") or 5
+Num_Msg_Max = database:hget(bot_id.."Hydra:flooding:settings:"..msg.chat_id_,"floodmax") or 5
 Time_Spam = database:hget(bot_id.."Hydra:flooding:settings:"..msg.chat_id_,"floodtime") or 5
 local post_count = tonumber(database:get(bot_id.."Hydra:floodc:"..msg.sender_user_id_..":"..msg.chat_id_) or 0)
 if post_count > tonumber(database:hget(bot_id.."Hydra:flooding:settings:"..msg.chat_id_,"floodmax") or 5) then 
