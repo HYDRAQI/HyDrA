@@ -395,8 +395,8 @@ function Reply_Status(msg,user_id,status,text)
 tdcli_function ({ID = "GetUser",user_id_ = user_id},function(arg,data) 
 if data.first_name_ ~= false then
 local UserName = (data.username_ or "HYDRATEAM")
-for Tshake in string.gmatch(data.first_name_, "[^%s]+") do
-data.first_name_ = Tshake
+for Hydra in string.gmatch(data.first_name_, "[^%s]+") do
+data.first_name_ = Hydra
 end
 local NameUser = "🗣┇بواسطه - ["..data.first_name_.."](T.me/"..UserName..")"
 local NameUserr = "🗣┇العضو ~ ["..data.first_name_.."](T.me/"..UserName..")"
