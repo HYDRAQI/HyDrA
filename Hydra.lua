@@ -2417,7 +2417,7 @@ send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمك
 return false 
 end
 local username = text:match("^رفع مدير @(.*)$") 
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
