@@ -2977,7 +2977,7 @@ return false
 end
 
 if text == ("كتم") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 if Rank_Checking(result.sender_user_id_, msg.chat_id_) == true then
 send(msg.chat_id_, msg.id_, "\n💢┇عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 return false 
