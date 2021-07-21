@@ -577,7 +577,7 @@ end
 if database:get(bot_id.."Hydra:Hydra:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == "الغاء" or text == "الغاء ✖" then   
 send(msg.chat_id_, msg.id_,"📫┇تم الغاء الاذاعه") 
-database:del(bot_id.."Tshake:Tshake:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Hydra:Hydra:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end 
 local list = database:smembers(bot_id.."Hydra:Chek:Groups") 
