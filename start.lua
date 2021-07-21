@@ -12,7 +12,7 @@ token = "]]..Token..[["
 Sudo = ]]..Sudo..[[  
 UserName = "]]..UserName..[["
 ]])
-Tshake_Info_Sudo:close()
+Hydra_Info_Sudo:close()
 end  
 if not database:get(Server_Hydra.."Token_Hydra") then
 print("\27[1;34m»» Send Your Token Bot :\27[m")
