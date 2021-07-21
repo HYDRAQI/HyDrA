@@ -2109,7 +2109,7 @@ else
 send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Hydra, nil)
 return false
 end
 if text and text:match("^حظر عام (%d+)$") and DevHydra(msg) then
