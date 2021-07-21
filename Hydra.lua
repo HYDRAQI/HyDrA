@@ -1149,7 +1149,7 @@ sendSticker(v, 0, msg.content_.sticker_.sticker_.persistent_id_)
 end 
 end
 send(msg.chat_id_, msg.id_,"📮┇تمت الاذاعه الى *~ "..#list.." ~* مشترك في الخاص ")     
-database:del(bot_id.."Hydra:Tshake:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
+database:del(bot_id.."Hydra:Hydra:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
 
@@ -1187,7 +1187,7 @@ database:del(bot_id.."Hydra:Hydra:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender
 return false
 end
 
-if database:get(bot_id.."Hydra:Tshake:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
+if database:get(bot_id.."Hydra:Hydra:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) then 
 if text == "الغاء" or text == "الغاء ✖" then   
 send(msg.chat_id_, msg.id_,"📫┇تم الغاء الاذاعه") 
 database:del(bot_id.."Hydra:Hydra:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
