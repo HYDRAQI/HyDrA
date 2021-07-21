@@ -1232,9 +1232,9 @@ end
 
 --------------------------------------------------------------------------------------------------------------
 if text and not Vips(msg) then  
-local Tshake_Msg = database:get(bot_id.."Hydra:Add:Filter:Rp2"..text..msg.chat_id_)   
-if Tshake_Msg then    
-Reply_Status(msg,msg.sender_user_id_,"reply","📬┇"..Tshake_Msg)  
+local Hydra_Msg = database:get(bot_id.."Hydra:Add:Filter:Rp2"..text..msg.chat_id_)   
+if Hydra_Msg then    
+Reply_Status(msg,msg.sender_user_id_,"reply","📬┇"..Hydra_Msg)  
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end
