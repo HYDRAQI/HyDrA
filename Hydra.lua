@@ -1301,7 +1301,7 @@ end
 if text == "قفل التثبيت" and msg.reply_to_message_id_ == 0 and Constructor(msg) then 
 database:set(bot_id.."Hydra:lockpin"..msg.chat_id_, true) 
 database:sadd(bot_id.."Hydra:Lock:pin",msg.chat_id_) 
-tdcli_function ({ ID = "GetChannelFull",  channel_id_ = msg.chat_id_:gsub("-100","") }, function(arg,data)  database:set(bot_id.."Tshake:Pin:Id:Msg"..msg.chat_id_,data.pinned_message_id_)  end,nil)
+tdcli_function ({ ID = "GetChannelFull",  channel_id_ = msg.chat_id_:gsub("-100","") }, function(arg,data)  database:set(bot_id.."Hydra:Pin:Id:Msg"..msg.chat_id_,data.pinned_message_id_)  end,nil)
 Reply_Status(msg,msg.sender_user_id_,"lock","💢️┇تم قفـل التثبيت هنا")  
 return false
 end 
@@ -2084,7 +2084,7 @@ database:sadd(bot_id.."Hydra:GBan:User", result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم حظره عام من المجموعات")  
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Hydra, nil)
 return false
 end
 if text and text:match("^حظر عام @(.*)$")  and DevHydra(msg) then
