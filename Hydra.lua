@@ -2127,7 +2127,7 @@ Reply_Status(msg,userid,"reply","💢┇تم حظره عام من المجموع
 return false
 end
 if text == ("الغاء العام") and tonumber(msg.reply_to_message_id_) ~= 0 and DevHydra(msg) then
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 database:srem(bot_id.."Hydra:GBan:User", result.sender_user_id_)
 Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم الغاء حظره عام من المجموعات")  
 end
