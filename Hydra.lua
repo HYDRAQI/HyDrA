@@ -547,7 +547,7 @@ database:sadd(bot_id.."Hydra:Muted:User"..msg.chat_id_,msg.sender_user_id_)
 return false  
 end
 end  
-function Tshake_Files(msg)
+function Hydra_Files(msg)
 for v in io.popen('ls Hydra_Files'):lines() do
 if v:match(".lua$") then
 plugin = dofile("Hydra_Files/"..v)
