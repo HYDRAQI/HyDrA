@@ -6234,7 +6234,7 @@ end ---- Chat_Type = 'GroupBot'
 end ---- Chat_Type = 'GroupBot' 
 
 if text == 'تفعيل' and DevBot(msg) then 
-local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
+local url,res = http.request('http://Hydra7.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.HyDrA ~= true then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@zx_xx] ⚜️')   
@@ -6287,7 +6287,7 @@ end,nil)
 end,nil)
 end
 if text == 'تعطيل' and DevBot(msg) then 
-local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
+local url,res = http.request('http://hydra7.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@zx_xx] ⚜️')   
@@ -6331,7 +6331,7 @@ end,nil)
 end,nil) 
 end
 if text == 'تفعيل' and not DevBot(msg) and not database:get(bot_id..'Hydra:Free:Add:Bots') then 
-local url,res = http.request('http://tshake.ml/joinch/?id='..msg.sender_user_id_)
+local url,res = http.request('http://hydra7.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.Hydra ~= true then
 send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@zx_xx] ⚜️')   
