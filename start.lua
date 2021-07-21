@@ -75,7 +75,7 @@ rm -fr ../.telegram-cli
 ./tg -s ./HyDrA.lua -p PROFILE --bot=$token
 done
 ]])
-RunTshake:close()
+RunHydra:close()
 local RunTs = io.open("ts", 'w')
 RunTs:write([[
 #!/usr/bin/env bash
