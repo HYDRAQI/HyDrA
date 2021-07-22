@@ -6245,7 +6245,7 @@ send(msg.chat_id_, msg.id_,'🚸┇البوت ليس ادمن يرجى ترقي�
 return false  
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
-if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Hydra:Num:Add:Bot') or 0) and not DevTshake(msg) then
+if tonumber(data.member_count_) < tonumber(database:get(bot_id..'Hydra:Num:Add:Bot') or 0) and not DevHydra(msg) then
 send(msg.chat_id_, msg.id_,'👥┇عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'Hydra:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
