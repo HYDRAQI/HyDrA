@@ -6485,7 +6485,7 @@ Text = '📨┇تمت ارسال البصمه اليه .. '
 end     
 sendText(Id_Sudo,Text..'\n'..'👤┇ ~ ['..string.sub(data.first_name_,0, 40)..'](tg://user?id='..data.id_..')',0,'md') 
 end,nil);end,nil);end,nil);end,nil);end 
-if DevTshake(msg) then
+if DevHydra(msg) then
 if text == 'تفعيل التواصل ⚡' then  
 database:del(bot_id..'Texting:In:Bv') 
 send(msg.chat_id_, msg.id_,'🔘┇ تم تفعيل التواصل ') 
@@ -6587,7 +6587,7 @@ if database:get(bot_id.."Hydra:Status:Bc") and not DevHydra(msg) then
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Tshake:Tshake:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Hydra:Hydra:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"🔘┇ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n📫┇للخروج ارسل الغاء ") 
 return false
 end 
