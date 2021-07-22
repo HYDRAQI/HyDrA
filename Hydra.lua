@@ -3091,7 +3091,7 @@ else
 send(msg.chat_id_, msg.id_,"💢┇لا يوجد حساب بهاذا المعرف")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Hydra, nil)
 return false
 end
 ------------------------------------------------------------------------
@@ -3107,7 +3107,7 @@ return false
 end
 if text and text:match('^تقيد (%d+) (.*)$') and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then
 local TextEnd = {string.match(text, "^(تقيد) (%d+) (.*)$")}
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 if TextEnd[3] == 'يوم' then
 Time_Restrict = TextEnd[2]:match('(%d+)')
 Time = Time_Restrict * 86400
@@ -3136,7 +3136,7 @@ end
 
 if text and text:match('^تقيد (%d+) (.*) @(.*)$') and Addictive(msg) then
 local TextEnd = {string.match(text, "^(تقيد) (%d+) (.*) @(.*)$")}
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
@@ -3170,7 +3170,7 @@ return false
 end
 ------------------------------------------------------------------------
 if text == ("الغاء تقيد") and tonumber(msg.reply_to_message_id_) ~= 0 and Addictive(msg) then
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.sender_user_id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 Reply_Status(msg,result.sender_user_id_,"reply","💢┇تم الغاء تقييده")  
 end
@@ -3180,7 +3180,7 @@ end
 ------------------------------------------------------------------------
 if text and text:match("^الغاء تقيد @(.*)$") and Addictive(msg) then
 local username = text:match("^الغاء تقيد @(.*)$")
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 if result.id_ then
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" .. result.id_ .. "&can_send_messages=True&can_send_media_messages=True&can_send_other_messages=True&can_add_web_page_previews=True")
 Reply_Status(msg,result.id_,"reply","💢┇تم الغاء تقييده")  
@@ -3489,7 +3489,7 @@ database:sadd(bot_id.."Hydra:List:Filter"..msg.chat_id_,text)
 return false  end  
 end
 if text then  
-local test = database:get(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."Hydra:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test == "repp" then  
 send(msg.chat_id_, msg.id_,"🔖┇تم منع الكلمه مع التحذير")  
 database:del(bot_id.."Hydra:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
@@ -3506,7 +3506,7 @@ send(msg.chat_id_, msg.id_,"🔖┇ارسل الكلمه الان")
 database:set(bot_id.."Hydra:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false  end
 if text then 
-local test = database:get(bot_id.."Tshake:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
+local test = database:get(bot_id.."Hydra:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if test and test == "reppp" then   
 send(msg.chat_id_, msg.id_,"📮┇تم الغاء منعها ")  
 database:del(bot_id.."Hydra:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
@@ -3676,7 +3676,7 @@ ComdNew = text:match("^مسح صلاحيه (.*)$") or text:match("^حذف صلا
 database:del(bot_id.."Hydra:Comd:New:rt:bot:"..ComdNew..msg.chat_id_)
 send(msg.chat_id_, msg.id_, "☑┇تم مسح الصلاحيه ") 
 end
-if database:get(bot_id.."Tshake:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) then 
+if database:get(bot_id.."Hydra:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) then 
 if text and text:match("^الغاء$") then 
 send(msg.chat_id_, msg.id_,"☑┇تم الغاء الامر ") 
 database:del(bot_id.."Hydra:Comd:New"..msg.chat_id_..""..msg.sender_user_id_) 
@@ -3747,7 +3747,7 @@ end
 
 
 if text == ("مسح ردود المدير") and Owner(msg) then
-local list = database:smembers(bot_id.."Tshake:List:Manager"..msg.chat_id_.."")
+local list = database:smembers(bot_id.."Hydra:List:Manager"..msg.chat_id_.."")
 for k,v in pairs(list) do
 database:del(bot_id.."Hydra:Add:Rd:Manager:Gif"..v..msg.chat_id_)   
 database:del(bot_id.."Hydra:Add:Rd:Manager:Vico"..v..msg.chat_id_)   
@@ -3792,7 +3792,7 @@ end
 if text or msg.content_.sticker_ or msg.content_.voice_ or msg.content_.animation_ or msg.content_.audio_ or msg.content_.document_ or msg.content_.photo_ or msg.content_.video_ then  
 local test = database:get(bot_id.."Hydra:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_.."")
 if database:get(bot_id.."Hydra:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true1" then
-database:del(bot_id.."Tshake:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_)
+database:del(bot_id.."Hydra:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_)
 if msg.content_.sticker_ then   
 database:set(bot_id.."Hydra:Add:Rd:Manager:Stekrs"..test..msg.chat_id_, msg.content_.sticker_.sticker_.persistent_id_)  
 end   
@@ -3848,7 +3848,7 @@ database:set(bot_id.."Hydra:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_
 return false 
 end
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."Tshake:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+if database:get(bot_id.."Hydra:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
 send(msg.chat_id_, msg.id_, '📥┇الان ارسل الرد الذي تريد اضافته \n📥┇ قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n☑┇ يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
 database:set(bot_id.."Hydra:Set:Manager:rd"..msg.sender_user_id_..":"..msg.chat_id_,"true1")
 database:set(bot_id.."Hydra:Text:Manager"..msg.sender_user_id_..":"..msg.chat_id_, text)
@@ -4047,7 +4047,7 @@ database:sadd(bot_id.."Hydra:List:Rd:Sudo", text)
 return false end
 end
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."Tshake:Set:On"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+if database:get(bot_id.."Hydra:Set:On"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
 send(msg.chat_id_, msg.id_,"📌┇تم ازالة الرد من قائمه ردود المطور")
 list = {"Add:Rd:Sudo:Audio","Add:Rd:Sudo:File","Add:Rd:Sudo:Video","Add:Rd:Sudo:Photo","Add:Rd:Sudo:Text","Add:Rd:Sudo:stekr","Add:Rd:Sudo:vico","Add:Rd:Sudo:Gif"}
 for k,v in pairs(list) do
@@ -4112,7 +4112,7 @@ database:sadd(bot_id.."Hydra:Spam:Group"..msg.sender_user_id_,text)
 end
 if photo then
 sendPhoto(msg.chat_id_,msg.id_,photo,"")
-database:sadd(bot_id.."Tshake:Spam:Group"..msg.sender_user_id_,text) 
+database:sadd(bot_id.."Hydra:Spam:Group"..msg.sender_user_id_,text) 
 end  
 end
 end
@@ -4199,7 +4199,7 @@ database:srem(bot_id.."Hydra:Mod:User"..msg.chat_id_, result.sender_user_id_)
 database:srem(bot_id.."Hydra:Special:User"..msg.chat_id_, result.sender_user_id_)
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Hydra, nil)
 end
 if text == "تاك للكل" and Addictive(msg) then
 tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""), offset_ = 0,limit_ = 200},function(ta,taha)
@@ -4315,7 +4315,7 @@ Text = "📫┇ المعرف غلط"
 send(msg.chat_id_, msg.id_,Text)
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Hydra, nil)
 end
 if text == "رفع القيود" and Owner(msg) then
 function Function_Hydra(extra, result, success)
@@ -4334,11 +4334,11 @@ send(msg.chat_id_, msg.id_, usertext..status)
 end,nil)
 end
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Hydra, nil)
 end
 if text and text:match("^كشف القيود @(.*)") and Owner(msg) then 
 local username = text:match("^كشف القيود @(.*)") 
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 if result.id_ then
 if database:sismember(bot_id.."Hydra:Muted:User"..msg.chat_id_,result.id_) then
 Muted = "مكتوم"
@@ -4360,7 +4360,7 @@ else
 send(msg.chat_id_, msg.id_,"📫┇ المعرف غلط")
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Hydra, nil)
 end
 
 if text == "كشف القيود" and Owner(msg) then 
@@ -4383,7 +4383,7 @@ end
 Textt = "📫┇ الحظر العام » "..GBan.."\n🚫┇ الحظر » "..Ban.."\n📮┇ الكتم » "..Muted..""
 send(msg.chat_id_, msg.id_,Textt)
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Hydra, nil)
 end
 
 if text and text:match("^ضع اسم (.*)") and Owner(msg) or text and text:match("^وضع اسم (.*)") and Owner(msg) then 
@@ -4493,8 +4493,8 @@ database:set(bot_id.."Hydra:Left:Bot"..msg.chat_id_,true)
 send(msg.chat_id_, msg.id_, "📫┇تم تعطيل مغادرة البوت") 
 return false 
 end
-if text == (database:get(bot_id.."Hydra:Name:Bot") or "تشاكي") then
-Namebot = (database:get(bot_id.."Hydra:Name:Bot") or "تشاكي")
+if text == (database:get(bot_id.."Hydra:Name:Bot") or "هايدرا") then
+Namebot = (database:get(bot_id.."Hydra:Name:Bot") or "هايدرا")
 local namebot = {
 "عمري فداك "..Namebot.. " كول حب ",
 "كول حبيبي ؟ اني "..Namebot,
@@ -4513,7 +4513,7 @@ return false
 end
 
 if text == "بوت" then
-Namebot = (database:get(bot_id.."Hydra:Name:Bot") or "تشاكي")
+Namebot = (database:get(bot_id.."Hydra:Name:Bot") or "هايدرا")
 send(msg.chat_id_, msg.id_,"اسمي القميل ["..Namebot.."] ") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" then 
@@ -5001,7 +5001,7 @@ local Id = msg.sender_user_id_
 local NumMsg = database:get(bot_id..'Hydra:messageUser'..msg.chat_id_..':'..msg.sender_user_id_) or 0
 local TotalMsg = Total_message(NumMsg)
 local Status_Gps = Get_Rank(Id,msg.chat_id_)
-local message_edit = database:get(bot_id..'Tshake:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
+local message_edit = database:get(bot_id..'Hydra:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
 local Num_Games = database:get(bot_id.."Hydra:Add:Num"..msg.chat_id_..msg.sender_user_id_) or 0
 local Add_Mem = database:get(bot_id.."Hydra:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (taha.total_count_ or 0)
@@ -5014,7 +5014,7 @@ local Texting = {
 "عمري الحلوين 💘",
 }
 local Description = Texting[math.random(#Texting)]
-local get_id = database:get(bot_id.."Tshake:Klesh:Id:Bot"..msg.chat_id_)
+local get_id = database:get(bot_id.."Hydra:Klesh:Id:Bot"..msg.chat_id_)
 if not database:get(bot_id..'Hydra:Lock:ID:Bot:Photo'..msg.chat_id_) then
 if taha.photos_[0] then
 if get_id then
@@ -5327,7 +5327,7 @@ return false
 end
 end
 if text == ""..(database:get(bot_id.."Hydr:Set:Aks:Game"..msg.chat_id_) or "").."" and not database:get(bot_id.."Hydr:Set:Aks"..msg.chat_id_) then
-if not database:get(bot_id.."Tshak:Set:Aks"..msg.chat_id_) then 
+if not database:get(bot_id.."Hydr:Set:Aks"..msg.chat_id_) then 
 send(msg.chat_id_, msg.id_,"🎁┇الف مبروك لقد فزت \n♻┇للعب مره اخره ارسل ~{ العكس }")
 database:incrby(bot_id.."Hydra:Add:Num"..msg.chat_id_..msg.sender_user_id_, 1)  
 end
@@ -5729,7 +5729,7 @@ database:del(bot_id..'Hydra:Free:Add:Bots')
 send(msg.chat_id_, msg.id_,'☑┇تم تفعيل البوت الخدمي ') 
 end
 if text == 'تعطيل البوت الخدمي' and DevHydra(msg) then  
-database:set(bot_id..'Tshake:Free:Add:Bots',true) 
+database:set(bot_id..'Hydra:Free:Add:Bots',true) 
 send(msg.chat_id_, msg.id_,'☑┇تم تعطيل البوت الخدمي') 
 end
 if text and text:match("^تعين عدد الاعضاء (%d+)$") and DevHydra(msg) then
@@ -5832,8 +5832,8 @@ end
 send(msg.chat_id_, msg.id_,t)
 end
 if text == "متجر الملفات" or text == 'المتجر' then
-if DevTshake(msg) then
-local Get_Files, res = https.request("https://raw.githubusercontent.com/Hydrasm/files_hydra/master/getfile.json")
+if DevHydra(msg) then
+local Get_Files, res = https.request("https://raw.githubusercontent.com/HyDrAQI/files_hydra/master/getfile.json")
 if res == 200 then
 local Get_info, res = pcall(JSON.decode,Get_Files);
 vardump(res.plugins_)
@@ -5864,14 +5864,14 @@ end
 if text and text:match("^(تعطيل ملف) (.*)(.lua)$") and DevHydra(msg) then
 local name_t = {string.match(text, "^(تعطيل ملف) (.*)(.lua)$")}
 local file = name_t[2]..'.lua'
-local file_bot = io.open("Tshake_Files/"..file,"r")
+local file_bot = io.open("Hydra_Files/"..file,"r")
 if file_bot then
 io.close(file_bot)
 t = "*🗂┇ الملف » {"..file.."}\n📬┇ تم تعطيله وحذفه بنجاح \n✓*"
 else
 t = "*📬┇ بالتاكيد تم تعطيل وحذف ملف » {"..file.."} \n✓*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/hydra/files_hydra/master/files_hydra/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/Hydra/files_Hydra/master/files_hydra/"..file)
 if res == 200 then
 os.execute("rm -fr Hydra_Files/"..file)
 send(msg.chat_id_, msg.id_,t) 
@@ -5891,7 +5891,7 @@ t = "*📬┇ بالتاكيد تم تنزيل وتفعيل ملف » {"..file..
 else
 t = "*🗂┇ الملف » {"..file.."}\n📬┇ تم تنزيله وتفعيله بنجاح \n💥*"
 end
-local json_file, res = https.request("https://raw.githubusercontent.com/hydrasm/files_hydra/master/files_hydra/"..file)
+local json_file, res = https.request("https://raw.githubusercontent.com/HyDrAQI/files_Hydra/master/files_hydra/"..file)
 if res == 200 then
 local chek = io.open("Hydra/"..file,'w+')
 chek:write(json_file)
@@ -5915,7 +5915,7 @@ for i = 1, #Groups do
 database:sadd(bot_id..'Hydra:Chek:Groups',Groups[i])  
 local list1 = database:smembers('hydra:'..bot_id..'creatorbasic:'..Groups[i])
 for k,v in pairs(list1) do
-database:sadd(bot_id.."Tshake:Basic:Constructor"..Groups[i], v)
+database:sadd(bot_id.."Hydra:Basic:Constructor"..Groups[i], v)
 end
 local list2 = database:smembers('hydra:'..bot_id..'creator:'..Groups[i])
 for k,v in pairs(list2) do
@@ -5932,7 +5932,7 @@ end
 database:set(bot_id.."Hydra:Lock:tagservrbot"..Groups[i],true)   
 list ={"Lock:Bot:kick","Lock:User:Name","Lock:hashtak","Lock:Cmd","Lock:Link","Lock:forward","Lock:Keyboard","Lock:geam","Lock:Photo","Lock:Animation","Lock:Video","Lock:Audio","Lock:vico","Lock:Sticker","Lock:Document","Lock:Unsupported","Lock:Markdaun","Lock:Contact","Lock:Spam"}
 for i,lock in pairs(list) do 
-database:set(bot_id..'Tshake:'..lock..Groups[i],"del")    
+database:set(bot_id..'Hydra:'..lock..Groups[i],"del")    
 end
 end
 for i = 1, #Users do
@@ -5982,16 +5982,16 @@ Text = [[
 
 🌐┇HyDrA TEAM 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📊┇ [Source Channel](https://t.me/ZX_XX)
+📊┇ [Source Channel](https://t.me/)
 
-📋┇ [TshAkE Dev](https://t.me/TSHAKETEAM)
+📋┇ [TshAkE Dev](https://t.me/)
 
-📁┇ [Source  Files](https://t.me/Tshake_sudo)
+📁┇ [Source  Files](https://t.me/)
 
-🌐┇ [TshAkE iNDT](https://t.me/ZX_XX/4611)
+🌐┇ [TshAkE iNDT](https://t.me/)
  
  ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ 
-📧┇ [TWS TshAkE](https://t.me/A_5bot)
+📧┇ [TWS HYDRA](https://t.me/)
 ]]
 send(msg.chat_id_, msg.id_,Text)
 end
@@ -6005,7 +6005,7 @@ Text = [[
 🎖┇م4 ~⪼ لعرض اوامر المنشئين
 👤┇م5 ~⪼ لعرض اوامر المطورين
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH @TSHAKETEAM
+📡┇CH @
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -6043,7 +6043,7 @@ Text = [[
 🔐┇الكلايش
 🔐┇السيلفي
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇Ch ~⪼ @TSHAKETEAM
+📡┇Ch ~⪼ @
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -6109,7 +6109,7 @@ Text = [[
 📮┇الصلاحيات
 📮┇الرابط
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH @TSHAKETEAM
+📡┇CH @
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -6153,7 +6153,7 @@ Text = [[
 تغير رد المميز + النص
 تغير رد العضو + النص
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH @TSHAKETEAM
+📡┇CH @
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -6178,7 +6178,7 @@ Text = [[
 ➕┇اضف رسائل + العدد بالرد
 ➕┇اضف مجوهرات + العدد بالرد
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH @TSHAKETEAM
+📡┇CH @
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -6224,7 +6224,7 @@ Text = [[
 ➕┇اذاعه بالتثبيت 
 ➕┇الاحصائيات 
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
-📡┇CH @TSHAKETEAM
+📡┇CH @
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false
@@ -6237,7 +6237,7 @@ if text == 'تفعيل' and DevBot(msg) then
 local url,res = http.request('http://Hydra7.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.HyDrA ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@zx_xx] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@] ⚜️')   
 return false 
 end
 if msg.can_be_deleted_ == false then 
@@ -6290,7 +6290,7 @@ if text == 'تعطيل' and DevBot(msg) then
 local url,res = http.request('http://hydra7.ml/joinch/?id='..msg.sender_user_id_)
 data = JSON.decode(url)
 if data.Ch_Member.TshAkE ~= true then
-send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@zx_xx] ⚜️')   
+send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمكنك استخدام البوت ✅ •\n• عليك الاشتراك في القناة 🔽 •\n• [@] ⚜️')   
 return false 
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
@@ -6543,7 +6543,7 @@ q = q + 1
 print('\27[30;35m»» THE BOT IS LEFT GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusKicked" then
-database:srem(bot_id..'Tshake:Chek:Groups',group[i])  
+database:srem(bot_id..'Hydra:Chek:Groups',group[i])  
 q = q + 1
 print('\27[30;36m»» THE BOT IS KICKED GROUP ↓\n»» '..group[i]..'\n\27[1;37m')
 end
@@ -6596,7 +6596,7 @@ if database:get(bot_id.."Hydra:Status:Bc") and not DevHydra(msg) then
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Hydra:Tshake:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Hydra:Hydra:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"🔘┇ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n📫┇للخروج ارسل الغاء ") 
 return false
 end  
@@ -6605,16 +6605,16 @@ if database:get(bot_id.."Hydra:Status:Bc") and not DevHydra(msg) then
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Tshake:Tshake:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Hydra:Hydra:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"📥┇ارسل لي التوجيه الان") 
 return false
 end 
 if text=="اذاعه بالتوجيه خاص 👤" and msg.reply_to_message_id_ == 0  then
-if database:get(bot_id.."Tshake:Status:Bc") and not DevHydra(msg) then 
+if database:get(bot_id.."Hydra:Status:Bc") and not DevHydra(msg) then 
 send(msg.chat_id_, msg.id_,"📫┇الاذاعه معطله من قبل المطور الاساسي")
 return false
 end
-database:setex(bot_id.."Tshake:Tshake:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
+database:setex(bot_id.."Hydra:Hydra:Fwd:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
 send(msg.chat_id_, msg.id_,"📥┇ارسل لي التوجيه الان") 
 return false
 end 
@@ -6771,8 +6771,8 @@ if text == "تحديث السورس 📥" then
 send(msg.chat_id_,msg.id_,'☑┇تم التحديث')
 os.execute('rm -rf Hydra.lua')
 os.execute('rm -rf start.lua')
-download_to_file('https://raw.githubusercontent.com/hydrasm/Hydra/master/Hydra.lua', 'Hydra.lua') 
-download_to_file('https://raw.githubusercontent.com/hydrasm/Hydra/master/start.lua', 'start.lua') 
+download_to_file('https://raw.githubusercontent.com/HyDrAQI/Hydra/master/Hydra.lua', 'Hydra.lua') 
+download_to_file('https://raw.githubusercontent.com/HyDrAQI/Hydra/master/start.lua', 'start.lua') 
 dofile('Hydra.lua')  
 return false
 end
@@ -6906,7 +6906,7 @@ if NewCmmd then
 data.message_.content_.text_ = (NewCmmd or data.message_.content_.text_)
 end
 end
-local Name_Bot = (database:get(bot_id.."Tshake:Name:Bot") or "هايدرا")
+local Name_Bot = (database:get(bot_id.."Hydra:Name:Bot") or "هايدرا")
 if not database:get(bot_id.."Hydra:Fun_Bots"..msg.chat_id_) then
 if text ==  ""..Name_Bot..' شنو رئيك بهاذا' and tonumber(msg.reply_to_message_id_) > 0 then     
 function FunBot(extra, result, success) 
@@ -6944,14 +6944,14 @@ local text = result.content_.text_
 if not Addictive(result) then
 ------------------------------------------------------------------------
 if text and text:match("[Jj][Oo][Ii][Nn][Cc][Hh][Aa][Tt]") or text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
-if database:get(bot_id.."Tshake:Lock:Link"..msg.chat_id_) then
+if database:get(bot_id.."Hydra:Lock:Link"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end 
 end
 ------------------------------------------------------------------------
 if text and text:match("[Tt][Ee][Ll][Ee][Gg][Rr][Aa][Mm].[Mm][Ee]") or text and text:match("[Tt].[Mm][Ee]") or text and text:match("[Tt][Ll][Gg][Rr][Mm].[Mm][Ee]") or text and text:match("[Tt][Ee][Ll][Ee][Ss][Cc][Oo].[Pp][Ee]") then
-if database:get(bot_id.."Tshake:Lock:Link"..msg.chat_id_) then
+if database:get(bot_id.."Hydra:Lock:Link"..msg.chat_id_) then
 DeleteMessage(result.chat_id_,{[0] = data.message_id_}) 
 return false
 end 
