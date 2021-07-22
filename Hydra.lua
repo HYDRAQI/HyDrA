@@ -3165,7 +3165,7 @@ https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_i
 end
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = TextEnd[4]}, Function_Tshake, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = TextEnd[4]}, Function_Hydra, nil)
 return false
 end
 ------------------------------------------------------------------------
@@ -3314,7 +3314,7 @@ return false
 end
 end
 if text ==("تثبيت") and msg.reply_to_message_id_ ~= 0 and Addictive(msg) then  
-if database:sismember(bot_id.."Tshake:Lock:pin",msg.chat_id_) and not Constructor(msg) then
+if database:sismember(bot_id.."Hydra:Lock:pin",msg.chat_id_) and not Constructor(msg) then
 send(msg.chat_id_,msg.id_,"📬┇التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
 return false  
 end
