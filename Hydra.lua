@@ -3329,7 +3329,7 @@ send(msg.chat_id_,msg.id_,"📫┇ليست لدي صلاحية التثبيت ي
 end
 end,nil) 
 end
-if text == "الغاء التثبيت" and Addictive(msg) then  
+if text == "الغاء  التثبيت" and Addictive(msg) then  
 if database:sismember(bot_id.."Hydra:Lock:pin",msg.chat_id_) and not Constructor(msg) then
 send(msg.chat_id_,msg.id_,"📬┇التثبيت والغاء التثبيت تم قفله من قبل المنشئين")  
 return false  
