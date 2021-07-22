@@ -5098,7 +5098,7 @@ end
 
 if text and text:match("^ايدي @(.*)$") and not database:get(bot_id..'Hydra:Lock:ID:Bot'..msg.chat_id_) then
 local username = text:match("^ايدي @(.*)$")
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 if result.id_ then
 tdcli_function ({ID = "GetUser",user_id_ = result.id_},function(arg,data) 
 if data.username_ then
