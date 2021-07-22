@@ -5673,7 +5673,7 @@ tdcli_function({ID='GetChat',chat_id_ = group[i]
 },function(arg,data)
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusMember" then
 print('\27[30;34m»» THE BOT IS NOT ADMIN ↓\n»» '..group[i]..'\n\27[1;37m')
-database:srem(bot_id..'Tshake:Chek:Groups',group[i])  
+database:srem(bot_id..'Hydra:Chek:Groups',group[i])  
 w = w + 1
 end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusLeft" then
@@ -5715,7 +5715,7 @@ return false
 end
 if text == ("تحديث السورس") and DevHydra(msg) then  
 send(msg.chat_id_,msg.id_,'☑┇تم التحديث')
-os.execute('rm -rf Tshake.lua')
+os.execute('rm -rf Hydra.lua')
 os.execute('rm -rf start.lua')
 download_to_file('https://raw.githubusercontent.com/Hydrasm/Hydra/master/Hydra.lua', 'Hydra.lua') 
 download_to_file('https://raw.githubusercontent.com/Hydrasm/Hydra/master/start.lua', 'start.lua') 
