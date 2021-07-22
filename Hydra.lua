@@ -5071,7 +5071,7 @@ send(msg.chat_id_, msg.id_,'🔰┇تم تنظيف *~ '..Number..'* رساله .
 end
 
 if text == 'ايدي' and tonumber(msg.reply_to_message_id_) > 0 and not database:get(bot_id..'Hydra:Lock:ID:Bot'..msg.chat_id_) then
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 if data.first_name_ == false then
 send(msg.chat_id_, msg.id_,'👤┇ الحساب محذوف لا توجد معلوماته ')
