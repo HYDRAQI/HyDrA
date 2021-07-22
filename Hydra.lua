@@ -2372,7 +2372,7 @@ send(msg.chat_id_,msg.id_,'• اهلا بك عزيزي 🔱 •\n• لايمك
 return false 
 end
 local username = text:match("^تنزيل منشئ @(.*)$")
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Hydra:Constructor"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","💢┇تم تنزيله من المنشئين")  
