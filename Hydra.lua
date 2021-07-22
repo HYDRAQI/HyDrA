@@ -7021,7 +7021,7 @@ end
 ------------------------------------------------------------------------
 if text then
 local Hydra_Msg = database:get(bot_id.."Hydra:Add:Filter:Rp2"..text..result.chat_id_)   
-if Tshake_Msg then    
+if Hydra_Msg then    
 Reply_Status(result,result.sender_user_id_,"reply","📬┇"..Hydra_Msg)  
 DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
 return false
