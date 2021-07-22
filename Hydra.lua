@@ -5908,7 +5908,7 @@ os.execute("rm -fr Hydra_Files/*")
 send(msg.chat_id_,msg.id_,"☑┇تم حذف جميع الملفات")
 return false
 end
-if text == 'نقل الاحصائيات' and DevTshake(msg) then
+if text == 'نقل الاحصائيات' and DevHydra(msg) then
 local Users = database:smembers('hydra:'..bot_id.."userss")
 local Groups = database:smembers('hydra:'..bot_id..'groups') 
 for i = 1, #Groups do
@@ -5984,7 +5984,7 @@ Text = [[
 ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉ ┉
 📊┇ [Source Channel](https://t.me/)
 
-📋┇ [TshAkE Dev](https://t.me/)
+📋┇ [HYDRA Dev](https://t.me/)
 
 📁┇ [Source  Files](https://t.me/)
 
