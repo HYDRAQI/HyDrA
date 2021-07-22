@@ -3041,7 +3041,7 @@ return false
 end
 if text and text:match("^الغاء كتم @(.*)$") and Addictive(msg) then
 local username = text:match("^الغاء كتم @(.*)$")
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."Hydra:Muted:User"..msg.chat_id_, result.id_)
 Reply_Status(msg,result.id_,"reply","💢┇تم الغاء كتمه من هنا")  
@@ -3075,7 +3075,7 @@ end
 ------------------------------------------------------------------------
 if text and text:match("^تقيد @(.*)$") and Addictive(msg) then
 local username = text:match("^تقيد @(.*)$")
-function Function_Tshake(extra, result, success)
+function Function_Hydra(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
 send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
