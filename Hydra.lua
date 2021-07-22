@@ -3574,7 +3574,7 @@ send(msg.chat_id_, msg.id_, "📫┇تم الغاء حفظ القوانين")
 database:del(bot_id.."Hydra:Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 return false  
 end 
-database:set(bot_id.."Tshake:Set:Rules:Group" .. msg.chat_id_,text) 
+database:set(bot_id.."Hydra:Set:Rules:Group" .. msg.chat_id_,text) 
 send(msg.chat_id_, msg.id_,"📮┇تم حفظ قوانين المجموعه") 
 database:del(bot_id.."Hydra:Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end  
@@ -4039,7 +4039,7 @@ database:set(bot_id.."Hydra:Set:On"..msg.sender_user_id_..":"..msg.chat_id_,true
 return false 
 end
 if text and text:match("^(.*)$") then
-if database:get(bot_id.."Tshake:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
+if database:get(bot_id.."Hydra:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_) == "true" then
 send(msg.chat_id_, msg.id_, '📥┇الان ارسل الرد الذي تريد اضافته \n📥┇ قد يكون (ملف - فديو - نص - ملصق - بصمه - متحركه )\n☑┇ يمكنك اضافه الى النص :\n- `#username` > اسم المستخدم\n- `#msgs` > عدد رسائل المستخدم\n- `#name` > اسم المستخدم\n- `#id` > ايدي المستخدم\n- `#stast` > موقع المستخدم \n- `#edit` > عدد السحكات ')
 database:set(bot_id.."Hydra:Set:Rd"..msg.sender_user_id_..":"..msg.chat_id_, "true1")
 database:set(bot_id.."Hydra:Text:Sudo:Bot"..msg.sender_user_id_..":"..msg.chat_id_, text)
