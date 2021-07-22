@@ -5092,7 +5092,7 @@ local Add_Mem = database:get(bot_id.."Hydra:Add:Memp"..msg.chat_id_..":"..data.i
 send(msg.chat_id_, msg.id_,'*🔘┇ايديه - '..Id..'\n📨┇رسائله - '..NumMsg..'\n📌┇معرفه - *['..UserName_User..']*\n📈┇تفاعله - '..TotalMsg..'\n🚸┇رتبته - '..Status_Gps..'\n⚡┇تعديلاته - '..message_edit..'\n💠┇جهاته - '..Add_Mem..'*') 
 end,nil)   
 end
-tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Tshake, nil)
+tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_Hydra, nil)
 return false
 end
 
@@ -5119,7 +5119,7 @@ else
 send(msg.chat_id_, msg.id_,'👤┇لا يوجد حساب بهاذا المعرف')
 end
 end
-tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Tshake, nil)
+tdcli_function ({ID = "SearchPublicChat",username_ = username}, Function_Hydra, nil)
 return false
 end
 if text == "سمايلات" or text == "سمايل" then
