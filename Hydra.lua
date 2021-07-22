@@ -6929,8 +6929,8 @@ if text and text:match('^'..Name_Bot..' ') then
 data.message_.content_.text_ = data.message_.content_.text_:gsub('^'..Name_Bot..' ','')
 end
 ------------------------------------------------------------------------
-Tshake_Started_Bot(msg,data)
-Tshake_Files(msg)
+Hydra_Started_Bot(msg,data)
+Hydra_Files(msg)
 elseif (data.ID == "UpdateMessageEdited") then
 local msg = data
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.message_id_)},function(extra, result, success)
@@ -7022,7 +7022,7 @@ end
 if text then
 local Tshake_Msg = database:get(bot_id.."Hydra:Add:Filter:Rp2"..text..result.chat_id_)   
 if Tshake_Msg then    
-Reply_Status(result,result.sender_user_id_,"reply","📬┇"..Tshake_Msg)  
+Reply_Status(result,result.sender_user_id_,"reply","📬┇"..Hydra_Msg)  
 DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
 return false
 end
